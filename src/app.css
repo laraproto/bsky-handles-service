@@ -1,0 +1,19 @@
+@import url('https://fonts.bunny.net/css?family=inter:400');
+@import 'tailwindcss';
+
+:root {
+	font-family: 'Inter', sans-serif;
+}
+
+body {
+	@apply bg-white text-pretty text-black dark:bg-zinc-900 dark:text-white;
+	background-size: 40%;
+}
+
+.emoji {
+	@apply inline-block w-6;
+}
+
+a {
+	@apply text-gray-400 hover:text-sky-500 hover:underline;
+}
