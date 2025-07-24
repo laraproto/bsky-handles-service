@@ -3,7 +3,7 @@
 	import { enhance } from '$app/forms';
 	import { PUBLIC_URL } from '$env/static/public';
 
-	let { data }: PageProps = $props();
+	let { data, form }: PageProps = $props();
 </script>
 
 <section class="w-[22rem]">
@@ -11,18 +11,22 @@
 	<p class="mt-4">
 		Get your own {PUBLIC_URL} handle with {Math.max(0, data.count - 1)} other users
 	</p>
-	<form method="post" action="?/handle" use:enhance class="flex flex-col pt-4">
+	<form method="post" use:enhance class="flex flex-col pt-4">
 		<label class="flex flex-col items-start">
 			<span class="input-label">Username</span>
-			<div class="flex items-center w-full">
+			<div
+				class="flex items-center rounded-lg w-full transition hover:outline-2 hover:outline-sky-500"
+			>
 				<input name="username-old" class="flex-grow" />
 				<span class="static-text">.bsky.social</span>
 			</div>
 		</label>
 		<label class="flex flex-col items-start">
 			<span class="input-label">New Username</span>
-			<div class="flex items-center w-full">
-				<input name="username-new" class="flex-grow" />
+			<div
+				class="flex items-center w-full rounded-lg transition hover:outline-2 hover:outline-sky-500"
+			>
+				<input name="username-new" value={form?.usernameNew} class="flex-grow" />
 				<span class="static-text">.{PUBLIC_URL}</span>
 			</div>
 		</label>
@@ -41,7 +45,7 @@
 	}
 
 	input {
-		@apply w-2/3 rounded-l-lg bg-neutral-950/50 p-2 outline outline-zinc-700 transition hover:outline-2 hover:outline-sky-500;
+		@apply w-2/3 rounded-l-lg bg-neutral-950/50 p-2 outline outline-zinc-700;
 	}
 
 	.static-text {
