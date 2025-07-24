@@ -5,6 +5,7 @@
 
 	import Footer from '$lib/components/Footer.svelte';
 	import { onMount } from 'svelte';
+	import Head from '$lib/components/Head.svelte';
 
 	let { children } = $props();
 
@@ -15,6 +16,10 @@
 	});
 </script>
 
+<Head
+	title="protogen.social"
+	ogDescription="Get a personalised bluesky handle using protogen.social"
+/>
 <main class="background" bind:this={main}>
 	<div class="blur"></div>
 	<article class="content">
