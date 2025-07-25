@@ -9,7 +9,7 @@
 <section class="w-[22rem]">
 	<h1 class="text-2xl font-bold">Get your own {PUBLIC_URL} handle</h1>
 	<p class="mt-4">
-		Get your own {PUBLIC_URL} handle with {Math.max(0, data.count - 1)} other users
+		Get your own {PUBLIC_URL} handle with {Math.max(0, data.count)} other users
 	</p>
 	<form method="post" use:enhance class="flex flex-col pt-4">
 		<label class="flex flex-col items-start">
