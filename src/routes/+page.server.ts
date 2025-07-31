@@ -48,7 +48,10 @@ export const actions = {
 			return fail(400, {
 				usernameOld,
 				usernameNew,
-				exists: true
+				exists: {
+					usernameOld: handleExists.did === did,
+					usernameNew: usernameNew === handleExists.handle
+				}
 			});
 
 		const insertedHandle = await db

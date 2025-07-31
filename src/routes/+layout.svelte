@@ -6,6 +6,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { onMount } from 'svelte';
 	import Head from '$lib/components/Head.svelte';
+	import { ModeWatcher } from 'mode-watcher';
 
 	let { children } = $props();
 
@@ -16,6 +17,7 @@
 	});
 </script>
 
+<ModeWatcher />
 <Head
 	title="protogen.social"
 	ogDescription="Get a personalised bluesky handle using protogen.social"

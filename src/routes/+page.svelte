@@ -2,8 +2,12 @@
 	import { type PageProps } from './$types';
 	import { enhance } from '$app/forms';
 	import { PUBLIC_URL } from '$env/static/public';
+	import CircleAlertIcon from '@lucide/svelte/icons/circle-alert';
+	import * as Alert from '$lib/components/ui/alert/index.js';
 
 	let { data, form }: PageProps = $props();
+
+	$inspect(form);
 </script>
 
 <section class="w-[22rem]">
@@ -12,6 +16,34 @@
 		Get your own {PUBLIC_URL} handle with {Math.max(0, data.count)} other users
 	</p>
 	<form method="post" use:enhance class="flex flex-col pt-4">
+		{#if form?.missing || form?.exists || form?.invalid}
+			<Alert.Root variant="destructive" class="text-left bg-neutral-800/40 mb-2">
+				<CircleAlertIcon class="size-4" />
+				<Alert.Title>Error</Alert.Title>
+				<Alert.Description>
+					<ul class="list-inside list-disc text-sm">
+						{#if form?.missing?.usernameOld}
+							<li>Current username cannot be blank</li>
+						{/if}
+						{#if form?.missing?.usernameNew}
+							<li>New username cannot be blank</li>
+						{/if}
+						{#if form?.invalid?.usernameOld}
+							<li>Current username could not be found</li>
+						{/if}
+						{#if form?.invalid?.usernameNew}
+							<li>New username contains invalid characters</li>
+						{/if}
+						{#if form?.exists?.usernameOld}
+							<li>Only one handle per person</li>
+						{/if}
+						{#if form?.exists?.usernameNew}
+							<li>New username already taken</li>
+						{/if}
+					</ul>
+				</Alert.Description>
+			</Alert.Root>
+		{/if}
 		<label class="flex flex-col items-start">
 			<span class="input-label">Username</span>
 			<div
