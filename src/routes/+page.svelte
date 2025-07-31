@@ -32,7 +32,10 @@
 							<li>Current username could not be found</li>
 						{/if}
 						{#if form?.invalid?.usernameNew}
-							<li>New username contains invalid characters</li>
+							<li>
+								New username contains invalid characters or the form action timed out for some
+								reason, in which case try again
+							</li>
 						{/if}
 						{#if form?.exists?.usernameOld}
 							<li>Only one handle per person</li>
