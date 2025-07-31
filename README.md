@@ -1,38 +1,13 @@
-# sv
+# bsky-handles-service
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This project just takes advantage of bluesky domain handles' no dns panel option with .well-known/atproto-did to allow you to get a custom handle as a subdomain on whatever domain the host of this project decides to use, this was made for protogen.social
 
-## Creating a project
+## Requirements
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Bun](https://bun.sh)
+- Postgresql
+- Reverse Proxy supporting `x-forwarded-host` and `x-forwarded-proto` headers
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Contributing
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Dev environments don't have the advantage of being able to test on bluesky but you should just be able to wing it
