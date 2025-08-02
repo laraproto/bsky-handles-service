@@ -41,7 +41,7 @@ export const actions = {
 			});
 
 		const handleExists = await db.query.handle.findFirst({
-			where: (hdl, { eq }) => eq(hdl.handle, usernameNew) || eq(hdl.did, did)
+			where: (hdl, { eq, or }) => or(eq(hdl.handle, usernameNew), eq(hdl.did, did))
 		});
 
 		if (handleExists)
